@@ -2,7 +2,16 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, MapPin, Copy, Check, Send, Github, Linkedin, Twitter } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  Copy,
+  Check,
+  Send,
+  Github,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
 import { siteConfig, socialLinks } from "@/lib/data";
 import { FadeIn } from "@/components/effects/fade-in";
 import { Input } from "@/components/ui/input";
@@ -26,7 +35,8 @@ export function ContactSection() {
   const validate = () => {
     const newErrors: Record<string, string> = {};
     if (!form.name.trim()) newErrors.name = "Name is required";
-    if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email)) newErrors.email = "Valid email required";
+    if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email))
+      newErrors.email = "Valid email required";
     if (!form.message.trim()) newErrors.message = "Message is required";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -50,10 +60,15 @@ export function ContactSection() {
       <div className="mx-auto max-w-7xl px-6">
         <FadeIn>
           <div className="text-center mb-16">
-            <span className="text-sm text-accent uppercase tracking-widest font-medium">Contact</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-4">Let&apos;s Work Together</h2>
+            <span className="text-sm text-accent uppercase tracking-widest font-medium">
+              Contact
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-4">
+              Let&apos;s Work Together
+            </h2>
             <p className="text-muted max-w-2xl mx-auto">
-              Have a project in mind? I&apos;d love to hear about it. Send me a message!
+              Have a project in mind? I&apos;d love to hear about it. Send me a
+              message!
             </p>
           </div>
         </FadeIn>
@@ -85,7 +100,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted">Location</p>
-                  <p className="font-medium">San Francisco, CA</p>
+                  <p className="font-medium">Chandigarh, India</p>
                 </div>
               </div>
 
@@ -94,7 +109,9 @@ export function ContactSection() {
                 <div className="relative text-center">
                   <MapPin className="w-8 h-8 text-accent mx-auto mb-2" />
                   <p className="text-sm text-muted">Map placeholder</p>
-                  <p className="text-xs text-muted/60 mt-1">San Francisco Bay Area</p>
+                  <p className="text-xs text-muted/60 mt-1">
+                    San Francisco Bay Area
+                  </p>
                 </div>
               </div>
 
@@ -134,7 +151,9 @@ export function ContactSection() {
                     <Check className="w-8 h-8 text-green-400" />
                   </motion.div>
                   <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
-                  <p className="text-muted">Thank you for reaching out. I&apos;ll get back to you soon.</p>
+                  <p className="text-muted">
+                    Thank you for reaching out. I&apos;ll get back to you soon.
+                  </p>
                 </motion.div>
               ) : (
                 <motion.form
@@ -147,7 +166,9 @@ export function ContactSection() {
                       id="name"
                       placeholder=" "
                       value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      onChange={(e) =>
+                        setForm({ ...form, name: e.target.value })
+                      }
                       className="peer pt-6"
                     />
                     <label
@@ -156,7 +177,9 @@ export function ContactSection() {
                     >
                       Your Name
                     </label>
-                    {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
+                    {errors.name && (
+                      <p className="text-red-400 text-xs mt-1">{errors.name}</p>
+                    )}
                   </div>
 
                   <div className="relative">
@@ -165,7 +188,9 @@ export function ContactSection() {
                       type="email"
                       placeholder=" "
                       value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      onChange={(e) =>
+                        setForm({ ...form, email: e.target.value })
+                      }
                       className="peer pt-6"
                     />
                     <label
@@ -174,7 +199,11 @@ export function ContactSection() {
                     >
                       Email Address
                     </label>
-                    {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
+                    {errors.email && (
+                      <p className="text-red-400 text-xs mt-1">
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
 
                   <div className="relative">
@@ -182,7 +211,9 @@ export function ContactSection() {
                       id="message"
                       placeholder=" "
                       value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      onChange={(e) =>
+                        setForm({ ...form, message: e.target.value })
+                      }
                       className="peer pt-6"
                     />
                     <label
@@ -191,7 +222,11 @@ export function ContactSection() {
                     >
                       Your Message
                     </label>
-                    {errors.message && <p className="text-red-400 text-xs mt-1">{errors.message}</p>}
+                    {errors.message && (
+                      <p className="text-red-400 text-xs mt-1">
+                        {errors.message}
+                      </p>
+                    )}
                   </div>
 
                   <Button type="submit" className="w-full h-12" size="lg">

@@ -4,8 +4,12 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { GraduationCap, Briefcase } from "lucide-react";
-import { stats } from "@/lib/data";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/effects/fade-in";
+import { siteConfig, stats } from "@/lib/data";
+import {
+  FadeIn,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/effects/fade-in";
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -31,7 +35,8 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
   return (
     <span ref={ref} className="text-4xl md:text-5xl font-bold text-gradient">
-      {count}{suffix}
+      {count}
+      {suffix}
     </span>
   );
 }
@@ -42,11 +47,18 @@ export function AboutSection() {
       <div className="mx-auto max-w-7xl px-6">
         <FadeIn>
           <div className="text-center mb-16">
-            <span className="text-sm text-accent uppercase tracking-widest font-medium">About Me</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-4">Crafting Digital Excellence</h2>
+            <span className="text-sm text-accent uppercase tracking-widest font-medium">
+              About Me
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-4">
+              Crafting Digital Experiences
+            </h2>
             <p className="text-muted max-w-2xl mx-auto">
-              Passionate developer with a keen eye for design and a love for building
-              immersive digital experiences.
+              Developer with experience building responsive web applications
+              using JavaScript, React, Node.js, Express, and MongoDB. Skilled in
+              C and Python with strong problem-solving abilities. Focused on
+              writing clean code, creating secure APIs, and delivering
+              real-world solutions.
             </p>
           </div>
         </FadeIn>
@@ -58,19 +70,20 @@ export function AboutSection() {
               <div className="relative flex flex-col sm:flex-row gap-6 items-center sm:items-start">
                 <div className="relative w-40 h-40 rounded-2xl overflow-hidden shrink-0 glow-sm">
                   <Image
-                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex"
+                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=Rohit"
                     alt="Profile photo"
                     fill
                     className="object-cover bg-accent/10"
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">{/* siteConfig.name */}Alex Morgan</h3>
+                  <h3 className="text-2xl font-bold mb-3">{siteConfig.name}</h3>
                   <p className="text-muted leading-relaxed">
-                    I&apos;m a full stack developer and AI engineer with 5+ years of experience
-                    building scalable web applications and intelligent systems. I specialize in
-                    React, Next.js, Node.js, and machine learning — turning complex problems into
-                    elegant, user-friendly solutions.
+                    I&apos;m a web developer with hands-on experience in
+                    building responsive MERN applications, secure REST APIs, and
+                    user-friendly interfaces. I enjoy solving technical
+                    challenges and delivering practical software solutions that
+                    help teams and users succeed.
                   </p>
                 </div>
               </div>
@@ -82,19 +95,23 @@ export function AboutSection() {
               {
                 icon: Briefcase,
                 title: "Experience",
-                content: "5+ years building products for startups and enterprises across fintech, AI, and e-commerce.",
+                content:
+                  "Intern at IDS Infotech Ltd. building production web applications using React, Node.js, and MongoDB.",
               },
               {
                 icon: GraduationCap,
                 title: "Education",
-                content: "B.S. Computer Science — Stanford University. Focus on AI/ML and distributed systems.",
+                content:
+                  "MCA from Himachal Pradesh University and BCA from Vallabh Gov. College.",
               },
             ].map((item) => (
               <StaggerItem key={item.title}>
                 <div className="glass rounded-2xl p-6 h-full hover:border-accent/30 transition-colors duration-300 group">
                   <item.icon className="w-8 h-8 text-accent mb-4 group-hover:scale-110 transition-transform" />
                   <h4 className="font-semibold mb-2">{item.title}</h4>
-                  <p className="text-sm text-muted leading-relaxed">{item.content}</p>
+                  <p className="text-sm text-muted leading-relaxed">
+                    {item.content}
+                  </p>
                 </div>
               </StaggerItem>
             ))}
